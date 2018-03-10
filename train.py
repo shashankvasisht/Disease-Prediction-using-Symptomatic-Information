@@ -78,8 +78,8 @@ len(cols)
 
 x = df[cols]
 y = df['prognosis']
-print x[:5]
-print y[:5]
+#print x[:5]
+#print y[:5]
 
 
 # In[15]:
@@ -91,7 +91,7 @@ with open('/home/shashank/Desktop/Predicting-Diseases-From-Symptoms-master/Manua
     reader = csv.reader(f)
     i = reader.next()
     rest = [row for row in reader]
-print i
+column_headings = i
 
 
 # In[16]:
@@ -99,7 +99,7 @@ print i
 
 for ix in i:
     ix = ix.replace('_',' ')
-    print ix
+    #print ix
 
 
 # In[17]:
@@ -138,8 +138,8 @@ mnb.score(x_test, y_test)
 from sklearn import cross_validation
 print ("cross result========")
 scores = cross_validation.cross_val_score(mnb, x_test, y_test, cv=3)
-print (scores)
-print (scores.mean())
+#print (scores)
+#print (scores.mean())
 
 
 # In[22]:
@@ -182,26 +182,26 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random
 # In[28]:
 
 
-print ("DecisionTree")
+#print ("DecisionTree")
 dt = DecisionTreeClassifier()
 clf_dt=dt.fit(x_train,y_train)
-print ("Acurracy: ", clf_dt.score(x_test,y_test))
+#print ("Acurracy: ", clf_dt.score(x_test,y_test))
 
 
 # In[29]:
 
 
 from sklearn import cross_validation
-print ("cross result========")
+#print ("cross result========")
 scores = cross_validation.cross_val_score(dt, x_test, y_test, cv=3)
-print (scores)
-print (scores.mean())
+#print (scores)
+#print (scores.mean())
 
 
 # In[30]:
 
 
-print ("Acurracy on the actual test data: ", clf_dt.score(testx,testy))
+#print ("Acurracy on the actual test data: ", clf_dt.score(testx,testy))
 
 
 # In[31]:
@@ -215,7 +215,7 @@ importances = dt.feature_importances_
 indices = np.argsort(importances)[::-1]
 
 # Print the feature ranking
-print("Feature ranking:")
+#print("Feature ranking:")
 
 
 # In[32]:

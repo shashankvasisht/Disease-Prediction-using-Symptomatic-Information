@@ -39,20 +39,25 @@
 
 		$("#diag").click(() => {
 			$.post(
-				"/post",
+				"http://localhost:8000/symptoms",
 				{
 					symptoms : syms
 				},
 				(data, status) => {
 					if(data.error){
-
+            console.log(data.error)
 					} else {
-						// no error occured
-
-
-
-						syms = []
+						// no error occuredro 
+      			syms = []
 						updateList()
+
+            // you can access data via data.key
+            var bimari = data.desease
+            $("#result")[0].innerHTML = `
+              <h2>
+                ` + bimari + `
+              </h2>
+            `
 					}
 				},
 				"json"
@@ -189,7 +194,9 @@ Details
 		<div class="col-md-6">
 			<div id="sym_list"></div>
 		</div>
-		<div class="col-md-6">B</div>
+		<div class="col-md-6">
+      <div id="result"></div>
+    </div>
 	</div>
 </div>
 <style>
